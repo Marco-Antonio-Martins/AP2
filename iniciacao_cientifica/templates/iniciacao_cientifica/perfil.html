@@ -66,7 +66,7 @@
     
     <div class="lh-1">
       <h1 class="h6 mb-0 text-white lh-1"> {% for i in pessoa %} {{i.nome}} {% endfor %}</h1>
-      <small>desde 2005</small>
+      <small>{% for i in pessoa %} {{i.areas_interesse}} {% endfor %}</small>
     </div>
   </div>
 
@@ -74,7 +74,7 @@
     <h6 class="border-bottom pb-2 mb-0">Publicações </h6>
     <div class="d-flex text-muted pt-3">
             <p class="pb-3 mb-0 small lh-sm">
-        <strong class="d-block text-gray-dark">Titulo</strong>
+        <strong class="d-block text-gray-dark">{{ artigo.titulo }}</strong>
         Resumo do trabalho desenvolvido pelo aluno.
       </p>
     </div>

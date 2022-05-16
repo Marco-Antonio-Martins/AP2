@@ -1,10 +1,14 @@
 from django.shortcuts import render
-from django.http import HttpResponse, Http404
-from .models import Autor
+from django.http import Http404
+from .models import Autor, Artigo
 
 def index(request, username):
     try:
         pessoa = Autor.objects.filter(user=username)
-    except pessoa.DoesNotExist:
+    except:
         raise Http404('Arroba não encontrado')
-    return render(request, 'iniciacao_cientifica/perfil.html', {'pessoa' : pessoa})
+    try:
+        artigo = Artigo.objects.filter(autores__contains = pessoa)
+    except:
+        raise Http404('Artigo não encontrado')
+    return render(request, 'iniciacao_cientifica/perfil.html', {'pessoa' : pessoa, 'artigo' : artigo})
