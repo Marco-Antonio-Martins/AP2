@@ -8,7 +8,7 @@ def index(request, username):
     except:
         raise Http404('Arroba não encontrado')
     try:
-        artigo = Artigo.objects.filter(autores__contains = pessoa)
+        artigo = Artigo.objects.filter(autores=username)
     except:
         raise Http404('Artigo não encontrado')
     return render(request, 'iniciacao_cientifica/perfil.html', {'pessoa' : pessoa, 'artigo' : artigo})

@@ -73,18 +73,19 @@
   <div class="my-3 p-3 bg-body rounded shadow-sm">
     <h6 class="border-bottom pb-2 mb-0">Publicações </h6>
     <div class="d-flex text-muted pt-3">
-            <p class="pb-3 mb-0 small lh-sm">
-        <strong class="d-block text-gray-dark">{{ artigo.titulo }}</strong>
-        Resumo do trabalho desenvolvido pelo aluno.
+            <p class="pb-3 mb-0 small lh-sm">  
+              {% for a in artigo %}           
+        <strong class="d-block text-gray-dark"> {{ a.titulo }} </strong>
+        {{ a.resumo }} {% endfor %}
       </p>
     </div>
     <div class="d-flex text-muted pt-3">
             <p class="pb-3 mb-0 small lh-sm">
-        <strong class="d-block text-gray-dark">Titulo</strong>
-        Resumo do trabalho desenvolvido pelo aluno.
+              {% for a in artigo %}  
+        <strong class="d-block text-gray-dark"> {{ a.titulo }}  </strong>
+        {{ a.resumo }} {% endfor %}
       </p>
     </div>
-
   </div>
 
 </main>
