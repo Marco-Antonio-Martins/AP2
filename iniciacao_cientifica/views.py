@@ -5,7 +5,7 @@ from .models import Autor, Artigo
 def index(request, username):
     pessoa = Autor.objects.filter(user=username)
     if len(pessoa) == 0:
-        raise Http404('Arroba não encontrado')
+        raise Http404('Nome de Usuário não encontrado')
     artigo = Artigo.objects.filter(autores=username)
     if len(artigo) == 0:
         raise Http404('Autor não possui Artigos')
@@ -15,7 +15,7 @@ def index(request, username):
     try:
         pessoa = Autor.objects.filter(user=username)
     except Autor.DoesNotExist:
-        raise Http404('Arroba não encontrado')
+        raise Http404('Nome de Usuário não encontrado')
     try:
         artigo = Artigo.objects.filter(autores=username)
     except Artigo.DoesNotExist:
