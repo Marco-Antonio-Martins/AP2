@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Autor, Artigo 
+from .models import Aluno, Artigo 
 
-@admin.register(Autor)
-class AutorAdmin(admin.ModelAdmin):
+@admin.register(Aluno)
+class AlunoAdmin(admin.ModelAdmin):
     pass
 @admin.register(Artigo)
 class ArtigoAdmin(admin.ModelAdmin):

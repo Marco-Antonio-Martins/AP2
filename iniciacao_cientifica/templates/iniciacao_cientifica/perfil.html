@@ -65,25 +65,38 @@
   <div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm">
     
     <div class="lh-1">
-      <h1 class="h6 mb-0 text-white lh-1"> {% for i in pessoa %} {{i.nome}} {% endfor %}</h1>
-      <small>{% for i in pessoa %} {{i.areas_interesse}} {% endfor %}</small>
+      <h1 class="h6 mb-0 text-white lh-1"> {{pessoa.nome}} </h1>
+      <small> {{ pessoa.areas_interesse }} </small>
     </div>
   </div>
   
   <div class="my-3 p-3 bg-body rounded shadow-sm">
     <h6 class="border-bottom pb-2 mb-0">Publicações</h6>
-    {% for a in artigo %} 
-    <div class="d-flex text-muted pt-3">
+
+    {% if artigo != 0 %}
+
+      {% for a in artigo %} 
+        <div class="d-flex text-muted pt-3">
             <p class="pb-3 mb-0 small lh-sm">                   
-        <strong class="d-block text-gray-dark"> {{ a.titulo }} </strong>
-        {{ a.resumo }} 
+            <strong class="d-block text-gray-dark"> {{ a.titulo }} </strong>
+            {{ a.resumo }} 
+            </p>
+        </div>
+      {% endfor %}
+     
+    {% else %}
+
+      <div class="d-flex text-muted pt-3">
+        <p class="pb-3 mb-0 small lh-sm">                   
+        <strong class="d-block text-gray-dark"> {{ pessoa.nome }} não foi citado em nenhuma publicação
         </p>
-    </div>
-    {% endfor %}
+      </div>
+
+    {% endif %}
+
   </div>
   
 </main>
-
 
     <script src="/docs/5.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
