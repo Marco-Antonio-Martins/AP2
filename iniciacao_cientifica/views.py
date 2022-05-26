@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import Http404
-from .models import Aluno, Artigo
+from .models import Aluno
 
 def index(request, username):
 
@@ -11,7 +11,9 @@ def index(request, username):
 
         raise Http404('Nome de Usuário não encontrado')
 
-    artigo = Artigo.objects.filter(autores=username)
+    artigo = pessoa.artigo_set.all()
+
+    #raise Http404(artigo)
 
     if len(artigo) == 0:
         
