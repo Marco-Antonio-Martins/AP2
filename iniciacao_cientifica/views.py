@@ -11,11 +11,9 @@ def index(request, username):
 
         raise Http404('Nome de Usuário não encontrado')
 
-    artigo = pessoa.artigo_set.all()
+    artigo = pessoa.artigo_set.all  
 
-    #raise Http404(artigo)
-
-    if len(artigo) == 0:
+    if not artigo:
         
         return render(request, 'iniciacao_cientifica/perfil.html', {'pessoa' : pessoa, 'artigo' : 0})
 
